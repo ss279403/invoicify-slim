@@ -6,14 +6,14 @@
 <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
-
+	{{^noBillingRecord}}
 	{{> common/_nav }}
 	<form method="post" action="/invoices/clients/{{clientId}}">
 	  <input type="text"
 	         name="invoiceNumber"
 	         placeholder="invoice number (NaN)"
 	         required>
-	
+	{{/noBillingRecord}}
 	  <table>
 	    <thead>
 	      <tr>
@@ -46,10 +46,16 @@
 	      {{/records}}
 	    </tbody>  
 	  </table>
-	
-	
-	  <button>Create the invoice</button>
 	  
+	
+	{{^noBillingRecord}}
+	  <button>Create the invoice</button>
+	{{/noBillingRecord}}
+	
+	{{#noBillingRecord}}
+		There are no billing records available
+	{{/noBillingRecord}}
+		  
 	  <input type="hidden"
 	         name="{{ _csrf.parameterName }}"
 	         value="{{ _csrf.token }}">
