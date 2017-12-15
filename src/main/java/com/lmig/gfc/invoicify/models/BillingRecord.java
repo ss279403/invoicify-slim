@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+
 // This needs to be an entity
 @Entity
 public abstract class BillingRecord {

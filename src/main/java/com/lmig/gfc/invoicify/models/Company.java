@@ -12,20 +12,20 @@ import javax.persistence.OneToMany;
 // This needs to be an entity
 @Entity
 public class Company {
-
+ 
 	// This needs an id
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	// This needs a name
-	@Column(nullable = false)
+	@Column(nullable = false) 
 	private String name;
 	// This needs a list of invoice objects named invoices as one-to-many
 	// relationship mapped by "company"
 	@OneToMany(mappedBy = "company")
 	private List<Invoice> invoices;
 	// Lots of getters and setters
-
+ 
 
 	public Company() {
 		
